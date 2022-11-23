@@ -1,4 +1,13 @@
 # React-component-lib
 
-`npm install`
-`npm run start`
+## Install dependencies
+`npm install`  
+
+## Run project 
+`npm run start`  
+
+## Run tests
+`npm run test`
+
+## Run Storybook
+`npm run storybook`
