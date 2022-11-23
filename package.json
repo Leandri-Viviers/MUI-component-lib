@@ -1,0 +1,34 @@
+{
+  "name": "@leandri/mui-component-library",
+  "version": "0.0.1",
+  "description": "React MUI component library",
+  "scripts": {
+    "rollup": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Leandri-Viviers/MUI-component-lib.git"
+  },
+  "author": "Leandri Viviers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Leandri-Viviers/MUI-component-lib/issues"
+  },
+  "homepage": "https://github.com/Leandri-Viviers/MUI-component-lib#readme",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^23.0.2",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^9.0.2",
+    "@types/react": "^18.0.25",
+    "react": "^18.2.0",
+    "rollup": "^3.4.0",
+    "rollup-plugin-dts": "^5.0.0",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.3"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts"
+}
