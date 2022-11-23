@@ -1,5 +1,5 @@
 {
-  "name": "@leandri/mui-component-library",
+  "name": "@lijan3/mui-component-library",
   "version": "0.0.1",
   "description": "React MUI component library",
   "scripts": {
@@ -30,5 +30,8 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts"
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/lijan3"
+  }
 }
