@@ -1,10 +1,11 @@
 import React from "react";
+import "./Button.css";
 
-interface Props {
+export interface ButtonProps {
   label: string;
 }
 
-const Button = ({ label }: Props) => {
+const Button = ({ label }: ButtonProps) => {
   return <button>{label}</button>;
 };
 
