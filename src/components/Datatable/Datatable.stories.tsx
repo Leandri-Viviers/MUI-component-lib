@@ -53,5 +53,10 @@ Basic.args = {
       name: "Comfort",
       type: "number",
     },
+    {
+      key: "price",
+      name: "Price",
+      type: "decimal",
+    },
   ],
 };
