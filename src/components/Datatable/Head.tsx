@@ -1,31 +1,31 @@
-import React from "react";
-import { includes } from "ramda";
+import React from 'react'
+import { includes } from 'ramda'
 // Components
-import { TableHead, TableRow, TableCell } from "@mui/material";
+import { TableHead, TableRow, TableCell } from '@mui/material'
 // Types
-import { IColumn } from "./Renderers/types";
+import { IColumn } from './Renderers/types'
 
 interface DatatableHeadProps {
-  columns: Array<IColumn>;
+  columns: Array<IColumn>
 }
 
-const numberTypes = ["number", "decimal"];
+const numberTypes = ['number', 'decimal']
 
 const Head = ({ columns }: DatatableHeadProps) => {
   return (
     <TableHead>
       <TableRow>
-        {columns.map(({ name, type }, index) => (
+        {columns.map(({ label, type }, index) => (
           <TableCell
             key={index}
-            align={includes(type, numberTypes) ? "right" : "left"}
+            align={includes(type, numberTypes) ? 'right' : 'left'}
           >
-            {name || ""}
+            {label || ''}
           </TableCell>
         ))}
       </TableRow>
     </TableHead>
-  );
-};
+  )
+}
 
-export default Head;
+export default Head

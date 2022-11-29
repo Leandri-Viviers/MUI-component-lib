@@ -1,13 +1,12 @@
-import React from "react";
+import React from 'react'
 // Components
-import { TableBody, TableRow } from "@mui/material";
+import { TableBody, TableRow } from '@mui/material'
 // Types
-import renderers from "./Renderers";
-import { IColumn } from "./Renderers/types";
+import renderers from './Renderers'
 
 interface DatatableBodyProps {
-  rows: Array<any>;
-  columns: Array<IColumn>;
+  rows: Array<any>
+  columns: Array<any>
 }
 
 const Body = ({ rows, columns }: DatatableBodyProps) => {
@@ -41,9 +40,9 @@ const Body = ({ rows, columns }: DatatableBodyProps) => {
               )}
             </TableCell>
           )} */}
-          {columns.map((column: IColumn, colIndex) => (
+          {columns.map((column, colIndex) => (
             <React.Fragment key={colIndex}>
-              {renderers[column.type]({ row, column })}
+              {renderers[column.type || 'text']({ row, column })}
             </React.Fragment>
           ))}
         </TableRow>
@@ -60,7 +59,7 @@ const Body = ({ rows, columns }: DatatableBodyProps) => {
         </TableRow>
       )} */}
     </TableBody>
-  );
-};
+  )
+}
 
-export default Body;
+export default Body

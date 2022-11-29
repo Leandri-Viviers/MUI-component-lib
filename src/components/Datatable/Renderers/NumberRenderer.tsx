@@ -1,6 +1,8 @@
-import React from "react";
-import { TableCell, Typography } from "@mui/material";
-import { IRendererProps } from "./types";
+import React from 'react'
+// Components
+import { TableCell, Typography } from '@mui/material'
+// Types
+import { IRendererProps } from './types'
 
 export const NumberRenderer = ({ row, column: { key } }: IRendererProps) => (
   <TableCell>
@@ -8,4 +10,4 @@ export const NumberRenderer = ({ row, column: { key } }: IRendererProps) => (
       {parseInt(row[key]) || 0}
     </Typography>
   </TableCell>
-);
+)
