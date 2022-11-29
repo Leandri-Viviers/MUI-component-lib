@@ -1,12 +1,12 @@
-import { Renderer } from "react-dom";
+import { rendererTypes } from './Renderers'
 
 export interface IColumn {
-  key: string;
-  name?: string;
-  type: string;
+  key: string
+  label?: string
+  type?: keyof typeof rendererTypes
 }
 
 export interface IRendererProps {
-  row: any;
-  column: IColumn;
+  row: any
+  column: IColumn
 }
