@@ -1,26 +1,19 @@
-import React from 'react'
-import { includes } from 'ramda'
 // Components
 import { TableHead, TableRow, TableCell } from '@mui/material'
 // Types
-import { IColumn } from './Renderers/types'
+import { Column } from './Renderers/types'
 
 interface DatatableHeadProps {
-  columns: Array<IColumn>
+  columns: Array<Column>
 }
-
-const numberTypes = ['number', 'decimal']
 
 const Head = ({ columns }: DatatableHeadProps) => {
   return (
     <TableHead>
       <TableRow>
-        {columns.map(({ label, type }, index) => (
-          <TableCell
-            key={index}
-            align={includes(type, numberTypes) ? 'right' : 'left'}
-          >
-            {label || ''}
+        {columns.map((column, index) => (
+          <TableCell key={index} align={column.align}>
+            {column.name || ''}
           </TableCell>
         ))}
       </TableRow>

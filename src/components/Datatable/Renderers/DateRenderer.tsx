@@ -1,9 +1,6 @@
-import React from 'react'
 import { format } from 'date-fns'
 // Components
-import { TableCell, Typography } from '@mui/material'
-// Types
-import { IColumn, IRendererProps } from './types'
+import { TableCell, TableCellProps, Typography } from '@mui/material'
 
 interface IFormatProps {
   value: string
@@ -11,21 +8,44 @@ interface IFormatProps {
 }
 
 const formatDate = ({ value, dateFormat }: IFormatProps) => {
-  return value ? format(new Date(value), dateFormat || 'yyyy/MM/dd') : ''
+  return value ? format(new Date(value), dateFormat) : ''
 }
 
-export interface IDateColumn extends IColumn {
+export type DateColumnProps = {
+  key: string | number
+  name: string
+  align?: TableCellProps['align']
+  format?: string
+}
+
+export type DateColumn = {
+  key: string | number
+  name: string
   format: string
+  align: TableCellProps['align']
+  render: ({ row, column }: DateRendererProps) => JSX.Element
 }
 
-export interface IDateRendererProps extends IRendererProps {
-  column: IDateColumn
-}
+export const date = ({
+  key,
+  name,
+  format,
+  align,
+}: DateColumnProps): DateColumn => ({
+  key,
+  name,
+  format: format || 'yyyy/MM/dd',
+  align: align || 'left',
+  render: ({ row, column }: DateRendererProps): JSX.Element =>
+    DateRenderer({ row, column }),
+})
+
+export type DateRendererProps = { row: any; column: DateColumn }
 
 export const DateRenderer = ({
   row,
   column: { key, format: dateFormat },
-}: IDateRendererProps) => (
+}: DateRendererProps) => (
   <TableCell>
     <Typography variant="body2">
       {formatDate({ value: row[key], dateFormat })}

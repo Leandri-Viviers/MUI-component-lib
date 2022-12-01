@@ -1,136 +1,127 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import '@fontsource/roboto/300.css'
+import '@fontsource/roboto/400.css'
+import '@fontsource/roboto/500.css'
+import '@fontsource/roboto/700.css'
 
+// Components
 import { Paper } from '@mui/material'
 import Datatable from './Datatable'
+import { date } from './Renderers/DateRenderer'
+import { text } from './Renderers/TextRenderer'
+import { Column } from './Renderers/types'
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
-  title: 'MUI-component-lib/Datatable',
-  component: Datatable,
-} as ComponentMeta<typeof Datatable>
-
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof Datatable> = (args) => (
-  <Paper>
-    <Datatable {...args} />
-  </Paper>
-)
-
-export const Basic = Template.bind({})
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Basic.args = {
-  rows: [
-    { id: 1, name: 'Freedom Chair', comfort: 1, price: 25 },
-    { id: 2, name: 'Aquaqu Inflatable Fun Chair', comfort: 1, price: 50 },
-    { id: 3, name: 'Magenti Inflatable Fun Chair', comfort: 1, price: 50 },
-    { id: 4, name: 'Biome Inflatable Fun Chair', comfort: 1, price: 50 },
-    { id: 5, name: 'Werkbunnst All Purpose Chair', comfort: 2, price: 80 },
-    { id: 6, name: 'Neverfold Camp Chair', comfort: 2, price: 80 },
-    { id: 7, name: 'Patio Dining Chair', comfort: 2, price: 100 },
-    { id: 8, name: 'Deck Chair by Survivall', comfort: 2, price: 150 },
-    { id: 9, name: 'RustyRedneck Barrel Chair', comfort: 2, price: 160 },
-    {
-      id: 10,
-      name: 'Satinistics Reproduction Armchair',
-      comfort: 2,
-      price: 160,
-    },
-  ],
-  columns: [
-    {
-      key: 'id',
-      label: 'ID',
-    },
-    {
-      key: 'name',
-      label: 'Name',
-    },
-    {
-      key: 'comfort',
-      label: 'Comfort',
-      type: 'number',
-    },
-    {
-      key: 'price',
-      label: 'Price',
-      type: 'decimal',
-    },
-  ],
+interface IRow {
+  id: number
+  name: string
+  lastname: string
+  createdDate: string
+  isAdmin: boolean
 }
 
-export const Dates = Template.bind({})
-Dates.args = {
-  rows: [
-    {
-      id: 1,
-      name: 'Dennis',
-      surname: 'Ritchie',
-      createdDate: '2022-01-31T12:00:00',
-      deleted: true,
-    },
-    {
-      id: 2,
-      name: 'Bjarne',
-      surname: 'Stroustrup',
-      createdDate: '2022-02-28T13:05:00',
-      deleted: true,
-    },
-    {
-      id: 3,
-      name: 'James',
-      surname: 'Gosling',
-      createdDate: '2022-03-31T14:10:00',
-      deleted: false,
-    },
-    {
-      id: 4,
-      name: 'Linus',
-      surname: 'Torvalds',
-      createdDate: '2022-04-30T15:15:00',
-      deleted: false,
-    },
-    {
-      id: 5,
-      name: 'Anders',
-      surname: 'Hejlsberg',
-      createdDate: '2022-05-31T16:00:00',
-      deleted: true,
-    },
-  ],
-  columns: [
-    {
-      key: 'id',
-      label: 'ID',
-    },
-    {
-      key: 'name',
-      label: 'First Name',
-    },
-    {
-      key: 'surname',
-      label: 'Last Name',
-    },
-    {
+const rows: Array<IRow> = [
+  {
+    id: 1,
+    name: 'Dennis',
+    lastname: 'Ritchie',
+    createdDate: '2022-01-31T12:00:00',
+    isAdmin: true,
+  },
+  {
+    id: 2,
+    name: 'Bjarne',
+    lastname: 'Stroustrup',
+    createdDate: '2022-02-28T13:05:00',
+    isAdmin: true,
+  },
+  {
+    id: 3,
+    name: 'James',
+    lastname: 'Gosling',
+    createdDate: '2022-03-31T14:10:00',
+    isAdmin: false,
+  },
+  {
+    id: 4,
+    name: 'Linus',
+    lastname: 'Torvalds',
+    createdDate: '2022-04-30T15:15:00',
+    isAdmin: false,
+  },
+  {
+    id: 5,
+    name: 'Anders',
+    lastname: 'Hejlsberg',
+    createdDate: '2022-05-31T16:00:00',
+    isAdmin: true,
+  },
+]
+
+// export const Default = () => {
+//   const columns = [
+//     {
+//       key: 'id',
+//       name: 'ID',
+//     } as ITextColumn,
+//     {
+//       key: 'name',
+//       name: 'First Name',
+//     } as ITextColumn,
+//     {
+//       key: 'surname',
+//       name: 'Last Name',
+//     } as ITextColumn,
+//     {
+//       key: 'fullname',
+//       name: 'Full Name',
+//       formatter: ({ row }: { row: any }) => `${row.name} ${row.surname}`,
+//     } as ITextColumn,
+//     {
+//       key: 'createdDate',
+//       name: 'Date Created',
+//       type: 'date',
+//     } as IDateColumn,
+//     {
+//       key: 'createdDate',
+//       name: 'Last Online',
+//       type: 'date',
+//       format: 'HH:mm',
+//     } as IDateColumn,
+//     {
+//       key: 'isAdmin',
+//       name: 'Admin',
+//       type: 'bool',
+//     } as IBoolColumn,
+//     {
+//       key: 'view',
+//       type: 'button',
+//       label: 'View',
+//       onClick: (row: any) => row.id,
+//     } as IButtonColumn,
+//   ]
+
+//   return (
+//     <Paper>
+//       <Datatable rows={rows} columns={columns}></Datatable>
+//     </Paper>
+//   )
+// }
+
+export const Typescript = () => {
+  const columns = [
+    text({ key: 'id', name: 'ID' }),
+    text({ key: 'name', name: 'First Name' }),
+    text({ key: 'lastname', name: 'Last Name' }),
+    text({
       key: 'fullname',
-      label: 'Full Name',
-      formatter: ({ row }) => `${row.name} ${row.surname}`,
-    },
-    {
-      key: 'createdDate',
-      label: 'Date Created',
-      type: 'date',
-    },
-    {
-      key: 'createdDate',
-      label: 'Time Created',
-      type: 'date',
-      format: 'HH:mm',
-    },
-    {
-      key: 'deleted',
-      label: 'Deleted',
-      type: 'bool',
-    },
-  ],
+      name: 'Full Name',
+      formatter: (row) => `${row.name} ${row.lastname}`,
+    }),
+    date({ key: 'createdDate', name: 'Date Created' }),
+  ]
+
+  return (
+    <Paper>
+      <Datatable rows={rows} columns={columns}></Datatable>
+    </Paper>
+  )
 }

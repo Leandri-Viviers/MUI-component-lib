@@ -1,17 +1,13 @@
-import React from 'react'
 // Components
 import { Table, TableContainer } from '@mui/material'
 import Head from './Head'
 import Body from './Body'
 // Types
-import { IColumn } from './Renderers/types'
-import { ITextColumn } from './Renderers/TextRenderer'
-import { IDecimalColumn } from './Renderers/DecimalRenderer'
-import { IDateColumn } from './Renderers/DateRenderer'
+import { Column } from './Renderers/types'
 
 export interface IDatatableProps {
   rows: Array<any>
-  columns: Array<IColumn | ITextColumn | IDecimalColumn | IDateColumn>
+  columns: Array<Column>
 }
 
 const DataTable = ({ rows = [], columns }: IDatatableProps) => (

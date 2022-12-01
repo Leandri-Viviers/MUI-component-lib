@@ -1,22 +1,46 @@
-import React from 'react'
 // Components
 import { TableCell, Typography } from '@mui/material'
-// Types
-import { IColumn, IRendererProps } from './types'
+import { TableCellProps } from '@mui/material'
 
-export interface ITextColumn extends IColumn {
-  formatter?: ({ row }: any) => string
+export type TextColumnProps = {
+  key: string | number
+  name: string
+  formatter?: ((...args: Array<any>) => any) | undefined
+  align?: TableCellProps['align']
 }
 
-export interface ITextRendererProps extends IRendererProps {
-  column: ITextColumn
+export type TextColumn = {
+  key: string | number
+  name: string
+  formatter?: ((...args: Array<any>) => any) | undefined
+  align?: TableCellProps['align']
+  render: ({ row, column }: TextRendererProps) => JSX.Element
+}
+
+export const text = ({
+  key,
+  name,
+  formatter,
+  align,
+}: TextColumnProps): TextColumn => ({
+  key,
+  name,
+  formatter,
+  align: align || 'left',
+  render: ({ row, column }: TextRendererProps): JSX.Element =>
+    TextRenderer({ row, column }),
+})
+
+export type TextRendererProps = {
+  row: any
+  column: TextColumn
 }
 
 export const TextRenderer = ({
   row,
   column: { key, formatter },
-}: ITextRendererProps) => {
-  const value = formatter ? formatter({ row }) : row[key]
+}: TextRendererProps): JSX.Element => {
+  const value = formatter ? formatter(row) : row[key]
   return (
     <TableCell>
       <Typography variant="body2">{value || ''}</Typography>

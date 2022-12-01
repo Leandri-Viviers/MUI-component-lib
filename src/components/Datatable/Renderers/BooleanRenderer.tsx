@@ -1,4 +1,3 @@
-import React from 'react'
 // Components
 import { TableCell, Typography } from '@mui/material'
 // Types

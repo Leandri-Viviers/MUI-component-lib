@@ -1,4 +1,3 @@
-import React from 'react'
 import DecimalFormat from 'decimal-format'
 // Components
 import { TableCell, Typography } from '@mui/material'

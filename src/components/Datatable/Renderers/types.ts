@@ -1,12 +1,4 @@
-import { rendererTypes } from './Renderers'
+import { TextColumn } from '../Renderers/TextRenderer'
+import { DateColumn } from './DateRenderer'
 
-export interface IColumn {
-  key: string
-  label?: string
-  type?: keyof typeof rendererTypes
-}
-
-export interface IRendererProps {
-  row: any
-  column: IColumn
-}
+export type Column = TextColumn | DateColumn

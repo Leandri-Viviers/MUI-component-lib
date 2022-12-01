@@ -1,8 +1,6 @@
 import React from 'react'
 // Components
 import { TableBody, TableRow } from '@mui/material'
-// Types
-import renderers from './Renderers'
 
 interface DatatableBodyProps {
   rows: Array<any>
@@ -42,7 +40,7 @@ const Body = ({ rows, columns }: DatatableBodyProps) => {
           )} */}
           {columns.map((column, colIndex) => (
             <React.Fragment key={colIndex}>
-              {renderers[column.type || 'text']({ row, column })}
+              {column.render({ row, column })}
             </React.Fragment>
           ))}
         </TableRow>
