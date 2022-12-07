@@ -90,6 +90,10 @@ const columns = [
 ]
 ```
 
+Output
+
+![Text Renderer Example](https://github.com/lijan3/React-component-lib/blob/main/assets/TextExample.png?raw=true)
+
 ---
 
 ## Number
