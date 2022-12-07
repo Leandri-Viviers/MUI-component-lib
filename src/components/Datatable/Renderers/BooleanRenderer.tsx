@@ -1,11 +1,12 @@
 // Components
-import { TableCell, Typography } from '@mui/material'
+import { TableCell, TableCellProps, Typography } from '@mui/material'
 
 export type BoolColumnProps = {
   key: string | number
   name: string
   trueLabel?: string
   falseLabel?: string
+  align?: TableCellProps['align']
 }
 
 export type BoolColumn = {
@@ -13,6 +14,7 @@ export type BoolColumn = {
   name: string
   trueLabel?: string
   falseLabel?: string
+  align: TableCellProps['align']
   render: ({ row, column }: BoolRendererProps) => JSX.Element
 }
 
@@ -21,11 +23,13 @@ export const bool = ({
   name,
   trueLabel = 'Yes',
   falseLabel = 'No',
+  align = 'left',
 }: BoolColumnProps) => ({
   key,
   name,
   trueLabel,
   falseLabel,
+  align,
   render: ({ row, column }: BoolRendererProps): JSX.Element =>
     BoolRenderer({ row, column }),
 })

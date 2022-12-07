@@ -12,9 +12,7 @@ const Head = ({ columns }: DatatableHeadProps) => {
     <TableHead>
       <TableRow>
         {columns.map((column, index) => (
-          <TableCell key={index} align={column.align}>
-            {column.name || ''}
-          </TableCell>
+          <TableCell key={index}>{column.name || ''}</TableCell>
         ))}
       </TableRow>
     </TableHead>

@@ -4,8 +4,6 @@ Library to easily generate complex datatables in MUI
 
 ## Installation
 
----
-
 Using npm:
 
 ```bash
@@ -13,8 +11,6 @@ npm install MUI-datatable
 ```
 
 ## Example
-
----
 
 1. Import the required type renderers:
 
@@ -90,11 +86,9 @@ const columns = [
 ]
 ```
 
-Output
+### Output
 
 ![Text Renderer Example](https://github.com/lijan3/React-component-lib/blob/main/assets/TextExample.png?raw=true)
-
----
 
 ## Number
 
