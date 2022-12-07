@@ -7,7 +7,7 @@ Library to easily generate complex datatables in MUI
 Using npm:
 
 ```bash
-npm install MUI-datatable
+npm i @leandri/mui-datatable
 ```
 
 ## Example
@@ -40,11 +40,14 @@ const columns = [
 
 4. Add the datatable:
 
-```ts
+```tsx
 import { Datatable } from 'mui-datatable'
-;<Paper>
-  <Datatable rows={data} columns={columns} />
-</Paper>
+
+const Home = () => (
+  <Paper>
+    <Datatable rows={data} columns={columns} />
+  </Paper>
+)
 ```
 
 # Type renderers
@@ -120,8 +123,6 @@ const columns = [
   }),
 ]
 ```
-
----
 
 ## Decimal
 
