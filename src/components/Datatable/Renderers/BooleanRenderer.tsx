@@ -1,21 +1,41 @@
 // Components
 import { TableCell, Typography } from '@mui/material'
-// Types
-import { IColumn, IRendererProps } from './types'
 
-export interface IBoolColumn extends IColumn {
+export type BoolColumnProps = {
+  key: string | number
+  name: string
   trueLabel?: string
   falseLabel?: string
 }
 
-export interface IBoolRendererProps extends IRendererProps {
-  column: IBoolColumn
+export type BoolColumn = {
+  key: string | number
+  name: string
+  trueLabel?: string
+  falseLabel?: string
+  render: ({ row, column }: BoolRendererProps) => JSX.Element
 }
 
-export const BooleanRenderer = ({
+export const bool = ({
+  key,
+  name,
+  trueLabel = 'Yes',
+  falseLabel = 'No',
+}: BoolColumnProps) => ({
+  key,
+  name,
+  trueLabel,
+  falseLabel,
+  render: ({ row, column }: BoolRendererProps): JSX.Element =>
+    BoolRenderer({ row, column }),
+})
+
+export type BoolRendererProps = { row: any; column: BoolColumn }
+
+export const BoolRenderer = ({
   row,
-  column: { key, trueLabel = 'Yes', falseLabel = 'No' },
-}: IBoolRendererProps) => (
+  column: { key, trueLabel, falseLabel },
+}: BoolRendererProps) => (
   <TableCell>
     <Typography variant="body2">{row[key] ? trueLabel : falseLabel}</Typography>
   </TableCell>

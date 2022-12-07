@@ -1,15 +1,47 @@
 import DecimalFormat from 'decimal-format'
 // Components
-import { TableCell, Typography } from '@mui/material'
-// Types
-import { IColumn, IRendererProps } from './types'
+import { TableCell, TableCellProps, Typography } from '@mui/material'
 
-export interface IDecimalColumn extends IColumn {
-  precision: number
+export type DecimalColumnProps = {
+  key: string | number
+  name: string
+  precision?: number
+  prefix?: string
+  suffix?: string
+  align?: TableCellProps['align']
 }
 
-export interface IDecimalRendererProps extends IRendererProps {
-  column: IDecimalColumn
+export type DecimalColumn = {
+  key: string | number
+  name: string
+  precision: number
+  prefix: string
+  suffix: string
+  align: TableCellProps['align']
+  render: ({ row, column }: DecimalRendererProps) => JSX.Element
+}
+
+export const decimal = ({
+  key,
+  name,
+  precision = 2,
+  prefix = '',
+  suffix = '',
+  align = 'right',
+}: DecimalColumnProps) => ({
+  key,
+  name,
+  precision,
+  prefix,
+  suffix,
+  align,
+  render: ({ row, column }: DecimalRendererProps): JSX.Element =>
+    DecimalRenderer({ row, column }),
+})
+
+export type DecimalRendererProps = {
+  row: any
+  column: DecimalColumn
 }
 
 const decimalPrecisionFormatter = (precision: number): DecimalFormat => {
@@ -19,13 +51,13 @@ const decimalPrecisionFormatter = (precision: number): DecimalFormat => {
 
 export const DecimalRenderer = ({
   row,
-  column: { key, precision = 2 },
-}: IDecimalRendererProps) => {
+  column: { key, precision, prefix, suffix },
+}: DecimalRendererProps) => {
   const dpf = decimalPrecisionFormatter(precision)
   return (
     <TableCell>
       <Typography variant="body2" align="right">
-        {dpf.format(row[key] || 0)}
+        {`${prefix} ${dpf.format(row[key] || 0)} ${suffix}`}
       </Typography>
     </TableCell>
   )

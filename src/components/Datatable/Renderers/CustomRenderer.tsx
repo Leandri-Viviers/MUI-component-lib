@@ -1,17 +1,30 @@
 // Components
 import { TableCell } from '@mui/material'
-// Types
-import { IColumn, IRendererProps } from './types'
 
-export interface ICustomColumn extends IColumn {
-  renderer: (...args: any[]) => any
+export type CustomColumnProps = {
+  name: string
+  renderer: ({ row }: any) => any
 }
 
-export interface ICustomRendererProps extends IRendererProps {
-  column: ICustomColumn
+export type CustomColumn = {
+  name: string
+  render: ({ row, column }: CustomRendererProps) => JSX.Element
+  renderer: ({ row }: any) => any
+}
+
+export const custom = ({ name, renderer }: CustomColumnProps) => ({
+  name,
+  renderer,
+  render: ({ row, column }: CustomRendererProps): JSX.Element =>
+    CustomRenderer({ row, column }),
+})
+
+export type CustomRendererProps = {
+  row: any
+  column: CustomColumn
 }
 
 export const CustomRenderer = ({
   row,
   column: { renderer },
-}: ICustomRendererProps) => <TableCell>{renderer({ row })}</TableCell>
+}: CustomRendererProps) => renderer({ row })

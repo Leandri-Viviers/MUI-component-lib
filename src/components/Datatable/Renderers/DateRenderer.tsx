@@ -29,13 +29,13 @@ export type DateColumn = {
 export const date = ({
   key,
   name,
-  format,
-  align,
+  format = 'yyyy/MM/dd',
+  align = 'left',
 }: DateColumnProps): DateColumn => ({
   key,
   name,
-  format: format || 'yyyy/MM/dd',
-  align: align || 'left',
+  format,
+  align,
   render: ({ row, column }: DateRendererProps): JSX.Element =>
     DateRenderer({ row, column }),
 })

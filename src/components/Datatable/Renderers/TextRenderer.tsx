@@ -1,6 +1,5 @@
 // Components
-import { TableCell, Typography } from '@mui/material'
-import { TableCellProps } from '@mui/material'
+import { TableCell, TableCellProps, Typography } from '@mui/material'
 
 export type TextColumnProps = {
   key: string | number
