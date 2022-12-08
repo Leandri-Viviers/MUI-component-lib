@@ -15,7 +15,7 @@ npm i @leandri/mui-datatable
 1. Import the required type renderers:
 
 ```ts
-import { text } from 'mui-datatable'
+import { text } from '@leandri/mui-datatable'
 ```
 
 2. Define the data:
@@ -41,7 +41,7 @@ const columns = [
 4. Add the datatable:
 
 ```tsx
-import { Datatable } from 'mui-datatable'
+import { Datatable } from '@leandri/mui-datatable'
 
 const Home = () => (
   <Paper>
@@ -68,7 +68,7 @@ const Home = () => (
 ### Example
 
 ```ts
-import { text } from 'mui-datatable'
+import { text } from '@leandri/mui-datatable'
 
 const rows = [
   { id: 1, firstname: 'Olivia', lastname: 'Thompson' },
@@ -106,7 +106,7 @@ const columns = [
 ### Example
 
 ```ts
-import { text, number } from 'mui-datatable'
+import { text, number } from '@leandri/mui-datatable'
 
 const rows = [
   { id: 1, name: 'Olivia', age: 18 },
@@ -140,7 +140,7 @@ const columns = [
 ### Example
 
 ```ts
-import { text, decimal } from 'mui-datatable'
+import { text, decimal } from '@leandri/mui-datatable'
 
 const rows = [
   { id: 1, name: 'Olivia', progress: 62 },
