@@ -1,7 +1,5 @@
 // Components
 import { TableCell, TableCellProps, Typography } from '@mui/material'
-// Types
-// import { IRendererProps } from './types'
 
 export type NumberColumnProps = {
   key: string | number

@@ -37,11 +37,11 @@ export type TextRendererProps = {
 
 export const TextRenderer = ({
   row,
-  column: { key, formatter },
+  column: { key, formatter, align },
 }: TextRendererProps): JSX.Element => {
   const value = formatter ? formatter(row) : row[key]
   return (
-    <TableCell>
+    <TableCell align={align}>
       <Typography variant="body2">{value || ''}</Typography>
     </TableCell>
   )
