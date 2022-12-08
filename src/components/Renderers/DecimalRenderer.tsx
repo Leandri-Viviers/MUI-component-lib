@@ -51,11 +51,11 @@ const decimalPrecisionFormatter = (precision: number): DecimalFormat => {
 
 export const DecimalRenderer = ({
   row,
-  column: { key, precision, prefix, suffix },
+  column: { key, precision, prefix, suffix, align },
 }: DecimalRendererProps) => {
   const dpf = decimalPrecisionFormatter(precision)
   return (
-    <TableCell>
+    <TableCell align={align}>
       <Typography variant="body2" align="right">
         {`${prefix}${dpf.format(row[key] || 0)}${suffix}`}
       </Typography>
