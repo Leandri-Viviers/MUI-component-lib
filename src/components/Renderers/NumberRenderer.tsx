@@ -27,9 +27,9 @@ export type NumberRendererProps = {
   column: NumberColumn
 }
 
-export const NumberRenderer = ({ row, column: { key } }: any) => (
+export const NumberRenderer = ({ row, column: { key, align } }: any) => (
   <TableCell>
-    <Typography variant="body2" align="right">
+    <Typography variant="body2" align={align}>
       {parseInt(row[key]) || 0}
     </Typography>
   </TableCell>

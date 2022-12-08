@@ -91,7 +91,7 @@ const columns = [
 
 ### Output
 
-![Text Renderer Example](https://github.com/lijan3/React-component-lib/blob/main/assets/TextExample.png?raw=true)
+![Text Renderer Example](./assets/TextExample.png)
 
 ## Number
 
@@ -109,13 +109,13 @@ const columns = [
 import { text, number } from '@leandri/mui-datatable'
 
 const rows = [
-  { id: 1, name: 'Olivia', age: 18 },
-  { id: 2, name: 'Emma', age: 30 },
-  { id: 3, name: 'Stephen', age: 28 },
+  { id: 1, firstname: 'Olivia', age: 18 },
+  { id: 2, firstname: 'Emma', age: 30 },
+  { id: 3, firstname: 'Stephen', age: 28 },
 ]
 
 const columns = [
-  text({ key: 'name', name: 'First Name' }),
+  // ...others
   number({
     key: 'age',
     name: 'Age',
@@ -123,6 +123,10 @@ const columns = [
   }),
 ]
 ```
+
+### Output
+
+![Number Renderer Example](./assets/NumberExample.png)
 
 ## Decimal
 
@@ -143,17 +147,28 @@ const columns = [
 import { text, decimal } from '@leandri/mui-datatable'
 
 const rows = [
-  { id: 1, name: 'Olivia', progress: 62 },
-  { id: 2, name: 'Emma', progress: 100 },
-  { id: 3, name: 'Stephen', progress: 86 },
+  { id: 1, name: 'Olivia', progress: 62.25, amount: 90720 },
+  { id: 2, name: 'Emma', progress: 100, amount: 156000.5 },
+  { id: 3, name: 'Stephen', progress: 86, amount: 134060 },
 ]
 
 const columns = [
-  text({ key: 'name', name: 'First Name' }),
+  // ...others
   decimal({
     key: 'progress',
     name: 'Progress',
+    precision: 1,
     suffix: '%',
+    align: 'left',
+  }),
+  decimal({
+    key: 'amount',
+    name: 'Amount',
+    prefix: '$',
   }),
 ]
 ```
+
+### Output
+
+![Decimal Renderer Example](./assets/DecimalExample.png)

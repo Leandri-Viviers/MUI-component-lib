@@ -57,7 +57,7 @@ export const DecimalRenderer = ({
   return (
     <TableCell>
       <Typography variant="body2" align="right">
-        {`${prefix} ${dpf.format(row[key] || 0)} ${suffix}`}
+        {`${prefix}${dpf.format(row[key] || 0)}${suffix}`}
       </Typography>
     </TableCell>
   )
