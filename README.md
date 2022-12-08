@@ -106,7 +106,7 @@ const columns = [
 ### Example
 
 ```ts
-import { text, number } from '@leandri/mui-datatable'
+import { number } from '@leandri/mui-datatable'
 
 const rows = [
   { id: 1, firstname: 'Olivia', age: 18 },
@@ -144,7 +144,7 @@ const columns = [
 ### Example
 
 ```ts
-import { text, decimal } from '@leandri/mui-datatable'
+import { decimal } from '@leandri/mui-datatable'
 
 const rows = [
   { id: 1, name: 'Olivia', progress: 62.25, amount: 90720 },
@@ -172,3 +172,45 @@ const columns = [
 ### Output
 
 ![Decimal Renderer Example](./assets/DecimalExample.png)
+
+## Boolean
+
+### Props
+
+| Name       | Type             | Required | Default |
+| ---------- | ---------------- | -------- | ------- |
+| key        | number \| string | Required | -       |
+| name       | string           | Required | -       |
+| trueLabel  | string           | Optional | Yes     |
+| falseLabel | string           | Optional | No      |
+| align      | [align][1]       | Optional | right   |
+
+### Example
+
+```ts
+import { bool } from '@leandri/mui-datatable'
+
+const rows = [
+  { id: 1, firstname: 'Olivia', isAdmin: true },
+  { id: 2, firstname: 'Emma', isAdmin: false },
+  { id: 3, firstname: 'Stephen', isAdmin: false },
+]
+
+const columns = [
+  // ...others
+  bool({
+    key: 'isAdmin',
+    name: 'Admin',
+  }),
+  bool({
+    key: 'isAdmin',
+    name: 'Role',
+    trueLabel: 'Admin',
+    falseLabel: 'User',
+  }),
+]
+```
+
+### Output
+
+![Boolean Renderer Example](./assets/BooleanExample.png)

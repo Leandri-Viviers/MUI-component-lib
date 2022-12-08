@@ -38,9 +38,9 @@ export type BoolRendererProps = { row: any; column: BoolColumn }
 
 export const BoolRenderer = ({
   row,
-  column: { key, trueLabel, falseLabel },
+  column: { key, trueLabel, falseLabel, align },
 }: BoolRendererProps) => (
-  <TableCell>
+  <TableCell align={align}>
     <Typography variant="body2">{row[key] ? trueLabel : falseLabel}</Typography>
   </TableCell>
 )
