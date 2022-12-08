@@ -3,14 +3,14 @@ import { Table, TableContainer } from '@mui/material'
 import Head from './Head'
 import Body from './Body'
 // Types
-import { Column } from './Renderers/types'
+import { Column } from '../Renderers/types'
 
 export interface IDatatableProps {
   rows: Array<any>
   columns: Array<Column>
 }
 
-const DataTable = ({ rows = [], columns }: IDatatableProps) => (
+const Datatable = ({ rows = [], columns }: IDatatableProps) => (
   <TableContainer>
     <Table>
       <Head columns={columns} />
@@ -19,4 +19,4 @@ const DataTable = ({ rows = [], columns }: IDatatableProps) => (
   </TableContainer>
 )
 
-export default DataTable
+export default Datatable

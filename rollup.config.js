@@ -32,6 +32,7 @@ export default [
       }),
       terser(),
     ],
+    external: ['react', 'react-dom'],
   },
   {
     input: 'dist/esm/index.d.ts',

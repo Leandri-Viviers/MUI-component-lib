@@ -1,6 +1,6 @@
 {
   "name": "@leandri/mui-datatable",
-  "version": "0.0.3",
+  "version": "0.0.9",
   "description": "React MUI component library",
   "homepage": "https://github.com/Leandri-Viviers/MUI-component-lib#readme",
   "bugs": {
@@ -65,10 +65,5 @@
     "rollup-plugin-postcss": "^4.0.2",
     "tslib": "^2.4.1",
     "typescript": "^4.9.3"
-  },
-  "peerDependencies": {
-    "@mui/material": "^5.10.15",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
   }
 }

@@ -1,7 +1,7 @@
 // Components
 import { TableHead, TableRow, TableCell } from '@mui/material'
 // Types
-import { Column } from './Renderers/types'
+import { Column } from '../Renderers/types'
 
 interface DatatableHeadProps {
   columns: Array<Column>

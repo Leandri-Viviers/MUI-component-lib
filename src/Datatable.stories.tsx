@@ -5,8 +5,7 @@ import '@fontsource/roboto/700.css'
 
 // Components
 import { Paper } from '@mui/material'
-import Datatable from './Datatable'
-import { text, number, date, bool, decimal, custom } from './Renderers'
+import { Datatable, text, number, date, bool, decimal } from './index'
 
 interface IRow {
   id: number

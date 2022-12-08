@@ -1,1 +1,2 @@
-export * from "./components";
+export { default as Datatable } from './components/Datatable'
+export * from './components/Renderers'
