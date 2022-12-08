@@ -56,7 +56,7 @@ export const DecimalRenderer = ({
   const dpf = decimalPrecisionFormatter(precision)
   return (
     <TableCell align={align}>
-      <Typography variant="body2" align="right">
+      <Typography variant="body2">
         {`${prefix}${dpf.format(row[key] || 0)}${suffix}`}
       </Typography>
     </TableCell>

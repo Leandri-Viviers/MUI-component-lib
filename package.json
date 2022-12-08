@@ -22,7 +22,8 @@
   "scripts": {
     "rollup": "rollup -c --environment NODE_ENV:production",
     "test": "jest",
-    "ladle": "ladle serve"
+    "ladle": "ladle serve",
+    "release": "rollup -c --environment NODE_ENV:production && npm publish" 
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
